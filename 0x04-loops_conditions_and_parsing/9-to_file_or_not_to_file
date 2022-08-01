@@ -1,0 +1,18 @@
+#!/usr/bin/env bash
+#Check if file exists and display a message
+#read contents of file to determine if it is empty
+#display message based on the content and the file type
+file=school
+if test -e "$file"; then
+	if [ -s file ]; then
+		echo "school file is not empty"
+	else
+		echo "school file is empty"
+	fi
+	echo "school file exists"
+	if [ -f "$file" ]; then
+		echo "school is a regular file"
+	fi
+else
+	echo "school file does not exist"
+fi

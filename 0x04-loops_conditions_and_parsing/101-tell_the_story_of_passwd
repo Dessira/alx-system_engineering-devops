@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+#Sometimes the ball is actually thrown ;)
+while IFS=':' read -r uname passwd uid gid uinfo homedir cmdshell;
+do
+	echo "The user $uname is part of the $gid gang,"\
+	"lives in $homedir and rides $cmdshell."\
+	"$uid's place is protected by the passcode PASSWORD,"\
+	"more info about the user here: $uinfo"
+done < "/etc/passwd"

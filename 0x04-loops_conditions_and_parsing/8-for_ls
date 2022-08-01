@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+#Script displays the content of the current directory
+ls > output.txt
+output=output.txt
+for i in `cat $output`
+do
+	echo $i | cut -f2 -d"-"
+done

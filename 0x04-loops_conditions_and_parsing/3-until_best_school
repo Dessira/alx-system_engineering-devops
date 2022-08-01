@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+#Script displays Best School 10 times using until
+i=0
+until [ ! $i -lt 10 ]
+do
+	echo "Best School"
+	i=`expr $i + 1`
+done
