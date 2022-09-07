@@ -4,12 +4,12 @@
 #display message based on the content and the file type
 file=school
 if test -e "$file"; then
-	if [ -s file ]; then
+	echo "school file exists"
+	if [ -s "$file" ]; then
 		echo "school file is not empty"
 	else
 		echo "school file is empty"
 	fi
-	echo "school file exists"
 	if [ -f "$file" ]; then
 		echo "school is a regular file"
 	fi
