@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
 # Get the curling port 80 to return a page that contains Hello Holberton
-echo "ServerName localhost" >> /etc/apache2.conf
+echo "Hello Holberton" >> /etc/apache2.conf
 service apache2 start
