@@ -2,5 +2,7 @@
 # Install nginx on your web-01
 apt-get -y update
 apt-get -y install nginx
-echo "Hello World!" | sudo tee /usr/share/nginx/html/index.html
-sudo service nginx restart
+sudo ufw allow 'Nginx HTTp'
+sudo chmod '0777' /var/www/html/index.nginx-debain.html
+echo "Hello World!" > /var/www/html/index.nginx-debain.html
+sudo /etc/init.d/nginx restart
