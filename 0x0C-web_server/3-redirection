@@ -5,7 +5,7 @@ sudo apt-get -y install nginx
 sudo ufw allow 'Nginx HTTP'
 sudo mkdir -p /var/www/html/
 sudo chmod -R 0777 /var/www/html/
-sudo echo "Hello World!" > /var/www/html/index.html
+echo "Hello World!" > /var/www/html/index.html
 SERVER_CONFIG=\
 "server {
 	listen 80 default_server;
