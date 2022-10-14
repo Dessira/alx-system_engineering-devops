@@ -3,16 +3,13 @@
 # Configure HAProxy to send traffic to web-01 and web-02 servers
 # Distribute requests using a roundrobin algorithm
 # Make sure that HAProxy can be managed via an init script
-sudo apt-get update
-sudo apt-get install haproxy
-sudo sed -i 's/ENABLED=0/ENABLED=1/' /etc/default/haproxy
-
-file=/etc/haproxy/haproxy.cfg
-
-sudo cp $file $file.copy
-
-sudo sed -i -e '$a\listen www\n\tbind *:80\n\tmode http\n\tstats enable' $file
-sudo sed -i -e '$a\\tbalance roundrobin\n\toption httpclose\n\toption forwardfor' $file
-sudo sed -i -e '$a\\tserver 17887-web-01 34.236.190.78:80\n\tserver 17887-web-02 3.237.47.232:80' $file
-
-sudo service haproxy start
+sudo apt-get -y install software-properties-common
+sudo add-apt-repository -y ppa:vbernat/haproxy-1.6
+sudo apt-get -y update
+sudo apt-get -y install haproxy=1.6.\*
+sudo echo -e "\nlisten www" >> /etc/haproxy/haproxy.cfg
+sudo echo -e "\tbind :80" >> /etc/haproxy/haproxy.cfg
+sudo echo -e "\tbalance roundrobin" >> /etc/haproxy/haproxy.cfg
+sudo echo -e "\tserver 17887-web-01 34.236.190.78" >> /etc/haproxy/haproxy.cfg
+sudo echo -e "\tserver 17887-web-02 3.237.47.232" >> /etc/haproxy/haproxy.cfg
+sudo service haproxy restart
